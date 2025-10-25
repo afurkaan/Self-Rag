@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# VSCode settings
+.vscode/
+
+# macOS metadata
+.DS_Store
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Logs and caches
+*.log
+*.cache/
+.pytest_cache/
+.mypy_cache/
+.coverage
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
