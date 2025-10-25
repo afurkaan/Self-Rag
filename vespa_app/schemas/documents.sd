@@ -1,0 +1,31 @@
+schema documents {
+    document documents {
+        field text type string {
+            indexing: summary | index
+        }
+        field source type string {
+            indexing: summary | attribute
+        }
+        field page_number type int {
+            indexing: summary | attribute
+        }
+        field chunk_id type int {
+            indexing: summary | attribute
+        }
+        field embedding type tensor<float>(x[768]) {
+            indexing: attribute | summary
+            attribute {
+                distance-metric: angular
+            }
+        }
+    }
+
+    rank-profile default inherits default {
+        inputs {
+            query(query_embedding) tensor<float>(x[768])
+        }
+        first-phase {
+            expression: closeness(field, embedding)
+        }
+    }
+}
